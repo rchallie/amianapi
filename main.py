@@ -1,5 +1,3 @@
-# TODO 1: Create web Server that reply "Hello World!"
-# TODO 2: Get web server routes and replies from dict (router)
 # TODO 3: Get web server routes and reploies from inventory file
 # TODO 4: Add route and reply from inventory file
 # TODO 5: Remove route and reply from inventory file
@@ -13,9 +11,9 @@
 
 # TODO Backlog:
 # - Dynamic route with params that can be used in reply (like /plop/:id => Reply: your id is :id)
+# - Fast exec, just give the json config file as path and deserv defined paths
 
 # TODO To be clean:
-# - HOST_NAME and PORT_NUMBER as env vars
 # - LOGGING_LEVEL as env var + correspondance table between our and logging variable type
 # - Comments
 
