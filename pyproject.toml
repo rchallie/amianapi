@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "amianapi"
+version = "0.0.1"
+description = "Interractiv in place updatable fake API in terminal... Something like that."
+authors = ["Romain Challier <rchalliepro@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
