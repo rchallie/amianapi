@@ -1,17 +1,15 @@
-# TODO 3: Get web server routes and reploies from inventory file
-# TODO 4: Add route and reply from inventory file
 # TODO 5: Remove route and reply from inventory file
 # TODO 6: Update route and reply from inventory file
-# TODO 7: Add Status code definition
 # TODO 8: Add Request type handle - GET 
-# TODO 9: Url list in a project
 # TODO 10: Webserver as a thread
 # TODO 11: TUI: List project and url as a navlist tree on left
 # TODO 12: TUI: Url editor
 
 # TODO Backlog:
+# - Url list in a project
 # - Dynamic route with params that can be used in reply (like /plop/:id => Reply: your id is :id)
 # - Fast exec, just give the json config file as path and deserv defined paths
+# - Shared inventory between users
 
 # TODO To be clean:
 # - LOGGING_LEVEL as env var + correspondance table between our and logging variable type
@@ -25,12 +23,12 @@ from http.server import HTTPServer
 
 from sources.server.server import Server
 
-logging.basicConfig(format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S', level=int(Environment.Content.get(Environment.ENV_VAR_LOGGING_LEVEL_KEY)))
+logging.basicConfig(format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S', level=int(Environment.Content.get(Environment.LOGGING_LEVEL_KEY)))
 
 if __name__ == '__main__':
 
-    server_hostname = Environment.Content.get(Environment.ENV_VAR_HOSTNAME_KEY)
-    server_port = int(Environment.Content.get(Environment.ENV_VAR_PORT_KEY))
+    server_hostname = Environment.Content.get(Environment.HOSTNAME_KEY)
+    server_port = int(Environment.Content.get(Environment.PORT_KEY))
 
     # Configure HTTP Server
     httpd = HTTPServer((server_hostname, server_port), Server)

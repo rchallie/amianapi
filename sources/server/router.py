@@ -1,27 +1,22 @@
+from .route_inventory import RouteInventory
 
 class Router():
 
     def __init__(self) -> None:
-        self.routes = {}
+        self.routes = RouteInventory()
 
     def add_route(self, path, body, status_code, content_type) -> None:
-        '''Add a route to the route.'''
+        '''Jump to RouteInventory add route function.'''
 
-        self.routes[path] = {
-            "path": path,
-            "body": body,
-            "status_code": status_code,
-            "content_type": content_type
-        }
+        self.routes.add_route(path, body, status_code, content_type)
 
     def get_route(self, path) -> str:
-        '''Return route informations.'''
+        '''Jump to RouteInventory get route function.'''
 
-        return self.routes[path]
+        return self.routes.get_route(path)
 
     def has_route(self, path) -> bool:
-        '''Return a boolean as True if route is listed in the
-        router, otherwise return False.'''
-        
-        return path in self.routes
+        '''Jump to RouteInventory has route function.'''
+
+        return self.routes.has_route(path)
 
