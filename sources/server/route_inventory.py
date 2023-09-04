@@ -40,6 +40,19 @@ class RouteInventory():
         with open(self.inventory_path, "w") as file:
             json.dump(self.routes, file, indent=4)
 
+    def has_route(self, path) -> bool:
+        '''Return a boolean as True if route is listed in the
+        inventory, otherwise return False.'''
+        self.__pre()
+
+        return path in self.routes
+
+    def get_route(self, path) -> str:
+        '''Return route informations.'''
+        self.__pre()
+
+        return self.routes[path]
+
     def add_route(self, path, body, status_code, content_type) -> None:
         '''Add a route to the inventory.'''
         self.__pre()
@@ -52,16 +65,12 @@ class RouteInventory():
         }
         self.__save()
 
-    def get_route(self, path) -> str:
-        '''Return route informations.'''
+    def remove_route(self, path) -> None:
+        '''Remove a route of the inventory.'''
+
         self.__pre()
 
-        return self.routes[path]
+        del self.routes[path]
+        self.__save()
 
-    def has_route(self, path) -> bool:
-        '''Return a boolean as True if route is listed in the
-        inventory, otherwise return False.'''
-        self.__pre()
-
-        return path in self.routes
     

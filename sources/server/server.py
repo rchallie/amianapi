@@ -5,7 +5,7 @@ from .router import Router
 from http.server import BaseHTTPRequestHandler
 
 router = Router()
-router.add_route("/plop", "Add meh", 200, "text/plain")
+router.remove_route("/plop")
 
 class Server(BaseHTTPRequestHandler):
 
