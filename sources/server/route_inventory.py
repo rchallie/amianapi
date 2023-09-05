@@ -67,10 +67,17 @@ class RouteInventory():
 
     def remove_route(self, path) -> None:
         '''Remove a route of the inventory.'''
-
         self.__pre()
 
         del self.routes[path]
         self.__save()
+
+    def update_route(self, path, body, status_code, content_type) -> None:
+        '''Update an existing route of the inventory.
+        Currently just a jump to add_route.'''
+
+        self.add_route(path, body, status_code, content_type)
+
+
 
     

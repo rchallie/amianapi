@@ -1,12 +1,13 @@
-# TODO 5: Remove route and reply from inventory file
-# TODO 6: Update route and reply from inventory file
-# TODO 8: Add Request type handle - GET 
 # TODO 10: Webserver as a thread
 # TODO 11: TUI: List project and url as a navlist tree on left
 # TODO 12: TUI: Url editor
 
 # TODO Backlog:
+# - Add Request type handle - GET
 # - Url list in a project
+# - Activate / deactivate a route
+# - give an array of every field as param to route_inv functions with a checker
+# - Each route must be identified with a UUID not by path (Allow multiple définition for a same route (if own route is set as on, another routes are set to off))
 # - Dynamic route with params that can be used in reply (like /plop/:id => Reply: your id is :id)
 # - Fast exec, just give the json config file as path and deserv defined paths
 # - Shared inventory between users

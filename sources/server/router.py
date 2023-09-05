@@ -25,3 +25,8 @@ class Router():
         '''Jump to RouteInventory remove route function.'''
 
         self.routes.remove_route(path)
+
+    def update_route(self, path, body, status_code, content_type) -> None:
+        '''Jump to RouteInventory update route function.'''
+
+        self.routes.update_route(path, body, status_code, content_type)
