@@ -5,7 +5,6 @@ from .router import Router
 from http.server import BaseHTTPRequestHandler
 
 router = Router()
-router.remove_route("/plop")
 
 class Server(BaseHTTPRequestHandler):
 
