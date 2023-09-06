@@ -1,5 +1,6 @@
 # Python
 __pycache__
 
-# Amianpi
-tmp_inventory.json
+# Amianapi
+tmp_inventories
+amianapi.log

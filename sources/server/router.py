@@ -1,5 +1,6 @@
 import os
 import platform
+import logging
 
 import sources.environment as Environment
 
@@ -9,7 +10,7 @@ class Router():
 
     def __init__(self) -> None:
 
-        self.inventories_path = Environment.INVENTORIES_PATH
+        self.inventories_path = Environment.Content.get(Environment.INVENTORIES_PATH)
 
         if not os.path.isdir(self.inventories_path):
             os.mkdir(self.inventories_path, 0o755)
@@ -23,8 +24,13 @@ class Router():
 
         self.routes = None
 
+        # self.select_project("test")
+
     def __has_selected_project(self) -> bool:
         return self.routes != None
+
+    def select_project(self, project_name) -> None:
+        self.routes = RoutesInventory(project_name)
 
     def has_route(self, path) -> bool:
         '''Jump to RoutesInventory has route function.'''

@@ -7,8 +7,8 @@ class RoutesInventory():
     def __init__(self, project_name: str) -> None:
 
         self.project_name = project_name
-        self.inventories_path = Environment.INVENTORIES_PATH
-        self.inventory_path = Environment.Content.get(f"{self.inventories_path}/{self.project_name}.json")
+        self.inventories_path = Environment.Content.get(Environment.INVENTORIES_PATH)
+        self.inventory_path = f"{self.inventories_path}/{self.project_name}.json"
         self.__pre()
 
     def __pre(self) -> None:
