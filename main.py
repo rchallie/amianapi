@@ -1,10 +1,9 @@
-# TODO 10: Webserver as a thread
 # TODO 11: TUI: List project and url as a navlist tree on left
 # TODO 12: TUI: Url editor
 
 # TODO Backlog:
 # - Add Request type handle - GET
-# - Url list in a project
+# - Url list in a project (route list as tree)
 # - Activate / deactivate a route
 # - give an array of every field as param to route_inv functions with a checker
 # - Each route must be identified with a UUID not by path (Allow multiple définition for a same route (if own route is set as on, another routes are set to off))
@@ -22,11 +21,18 @@ import logging
 
 import sources.environment as Environment
 
+# from sources.tui.app import TUI
 from sources.server.threaded_httpd import ThreadedHTTPd
 
-logging.basicConfig(format='[%(threadName)s] %(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S', level=int(Environment.Content.get(Environment.LOGGING_LEVEL_KEY)))
+# VERY TEMPORARY
+import os
+os.remove("amianapi.log")
+logging.basicConfig(filename="amianapi.log", filemode='a', format='[%(threadName)s] %(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S', level=int(Environment.Content.get(Environment.LOGGING_LEVEL_KEY)))
 
 if __name__ == '__main__':
 
     httpd_thread = ThreadedHTTPd(name="httpd_thread")
     httpd_thread.start()
+
+    # app = TUI()
+    # app.run()

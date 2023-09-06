@@ -1,13 +1,23 @@
 import logging
+import threading
 
 import sources.environment as Environment
 
-from threading import Thread
 from http.server import HTTPServer
 
 from .server import Server
 
-class ThreadedHTTPd(Thread):
+# TMP
+# custom exception hook
+def custom_hook(args):
+    # report the failure
+    logging.error(f'Thread failed: {args.exc_value}')
+
+...
+# set the exception hook
+threading.excepthook = custom_hook
+
+class ThreadedHTTPd(threading.Thread):
 
     def run(self) -> None:
 

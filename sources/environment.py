@@ -3,14 +3,14 @@ import os
 HOSTNAME_KEY="AMIANAPI_HOSTNAME"
 PORT_KEY="AMIANAPI_PORT"
 LOGGING_LEVEL_KEY="AMIANAPI_LOGGING_LEVEL"
-INVENTORY_PATH="AMIANAPI_INVENTORY_PATH"
+INVENTORIES_PATH="AMIANAPI_INVENTORIES_PATH"
 
 default_environment_variables = {
     HOSTNAME_KEY: "localhost",
     PORT_KEY: "8080",
     # TODO: See TODO Clean
     LOGGING_LEVEL_KEY: "10",
-    INVENTORY_PATH: "./tmp_inventory.json"
+    INVENTORIES_PATH: "./tmp_inventories"
 }
 
 class Content():

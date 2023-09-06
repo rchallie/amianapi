@@ -2,11 +2,13 @@ import json
 import logging
 import sources.environment as Environment
 
-class RouteInventory():
+class RoutesInventory():
 
-    def __init__(self) -> None:
+    def __init__(self, project_name: str) -> None:
 
-        self.inventory_path = Environment.Content.get(Environment.INVENTORY_PATH)
+        self.project_name = project_name
+        self.inventories_path = Environment.INVENTORIES_PATH
+        self.inventory_path = Environment.Content.get(f"{self.inventories_path}/{self.project_name}.json")
         self.__pre()
 
     def __pre(self) -> None:
@@ -47,11 +49,17 @@ class RouteInventory():
 
         return path in self.routes
 
-    def get_route(self, path) -> str:
+    def get_route(self, path) -> dict:
         '''Return route informations.'''
         self.__pre()
 
         return self.routes[path]
+
+    def get_all(self) -> dict:
+        '''Return all routes informations.'''
+        self.__pre()
+
+        return self.routes
 
     def add_route(self, path, body, status_code, content_type) -> None:
         '''Add a route to the inventory.'''
