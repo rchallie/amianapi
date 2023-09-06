@@ -1,36 +1,27 @@
-import os
-import platform
+
 import logging
 
-import sources.environment as Environment
-
-from .routes_inventory import RoutesInventory
+from .inventories import Inventories
 
 class Router():
 
     def __init__(self) -> None:
 
-        self.inventories_path = Environment.Content.get(Environment.INVENTORIES_PATH)
-
-        if not os.path.isdir(self.inventories_path):
-            os.mkdir(self.inventories_path, 0o755)
-
-            if platform.system() != "Darwin":
-                os.chown(
-                    self.inventories_path,
-                    pwd.getpwnam("nobody").pw_uid,
-                    os.stat(self.inventories_path).st_gid
-                )
-
+        self.inventories = Inventories()
         self.routes = None
 
-        # self.select_project("test")
+        self.select_project("plop")
 
     def __has_selected_project(self) -> bool:
+        '''Return a boolean that return True if route inventory
+        is defined with a project routes, otherwise False.'''
+
         return self.routes != None
 
     def select_project(self, project_name) -> None:
-        self.routes = RoutesInventory(project_name)
+        '''Select 'project_name' routes inventory.'''
+
+        self.routes = self.inventories.get_inventory(project_name)
 
     def has_route(self, path) -> bool:
         '''Jump to RoutesInventory has route function.'''
