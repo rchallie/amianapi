@@ -2,6 +2,13 @@
 # TODO 12: TUI: Url editor
 
 # TODO Backlog:
+# - routes_list => Projects Navigation
+# - Project Create:
+#   - Error messages:
+#       - Project name already exists
+#       - Empty Project name
+# - Stop server when close TUI
+# - A route can only be saved if another route with same path avec different trigger conditions (so add trigger condition)
 # - Add Request type handle - GET
 # - Url list in a project (route list as tree)
 # - Activate / deactivate a route
@@ -21,7 +28,7 @@ import logging
 
 import sources.environment as Environment
 
-# from sources.tui.app import TUI
+from sources.tui.app import TUI
 from sources.server.threaded_httpd import ThreadedHTTPd
 
 # VERY TEMPORARY
@@ -34,5 +41,5 @@ if __name__ == '__main__':
     httpd_thread = ThreadedHTTPd(name="httpd_thread")
     httpd_thread.start()
 
-    # app = TUI()
-    # app.run()
+    app = TUI()
+    app.run()
