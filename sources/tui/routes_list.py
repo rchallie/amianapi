@@ -26,7 +26,7 @@ class RoutesList(Tree):
 
         for project in self.projects.get_projects_list():
             logging.info(project)
-            project_routes = self.root.add(project.name)
+            project_routes = self.root.add(label=project.name, data=project.uuid)
             project_project_routes = project.get_all_routes()
             for route in project_project_routes:
                 project_routes.add_leaf(project_project_routes[route]["name"])

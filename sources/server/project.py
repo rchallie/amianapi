@@ -50,6 +50,10 @@ class Project():
     def name(self):
         return self.project_infos["name"]
 
+    @property
+    def uuid(self):
+        return self.project_infos["uuid"]
+
     def setup(self, project_name: str) -> None:
         self.__pre()
 

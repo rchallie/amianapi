@@ -66,6 +66,10 @@ class TUI(App):
     # Projects Navlist 
     def on_tree_node_selected(self, event: Tree.NodeSelected):
 
-        logging.info(f"Node: {event.node.label}")
-        self.query_one(ResumeProject).set_project(event.node.label)
+        logging.info(f"Node: {event.node.label}, {event.node.data}")
+
+        # Had to set to empty before to trigger render
+        self.query_one(f"#{ids.MAIN_PANE}").current = ""
         self.query_one(f"#{ids.MAIN_PANE}").current = ids.RESUME_PROJECT
+
+        self.query_one(ResumeProject).set_project(event.node.data)
